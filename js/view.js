@@ -82,7 +82,10 @@ class View {
             // TODO: evitar el uso de hlist, quizás pasar estructura como JSON (solo atributos)
             if (f.history.hlist) {
                 const history = document.createElement("div")
-                history.textContent = "Historia: " + f.history.hlist
+                history.innerHTML = "Historia:<br>"
+                for (let helem of f.history.hlist) {
+                    history.innerHTML += "&emsp;" + (helem.state? "✔️": "❌") + " " + helem.date + ": " + helem.note + " " + "<br>"
+                }
                 elem.appendChild(history)
             }
 

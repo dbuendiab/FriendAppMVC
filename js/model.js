@@ -22,6 +22,10 @@ class Friends {
     getAll() {
         return this.friends
     }
+
+    toString() {
+        return JSON.stringify(this.friends)
+    }
 }
 
 // ---------------------------------------------------------------------------------
@@ -43,6 +47,8 @@ class History {
     constructor() {
         this.hlist = []
     }
+
+    // toJSON = () => JSON.stringify(this.hlist)
 
 /*
     add = function(date, note, state) {
