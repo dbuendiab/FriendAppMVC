@@ -41,7 +41,7 @@ class Friend {
 
 class History {
     constructor() {
-        this.history = []
+        this.hlist = []
     }
 
 /*

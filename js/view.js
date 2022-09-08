@@ -79,9 +79,10 @@ class View {
 
             // Poner la historia opcionalmente, si existe esa información
             // Además, tendría que ser mediante un for(), porque es una lista
-            if (f.history) {
+            // TODO: evitar el uso de hlist, quizás pasar estructura como JSON (solo atributos)
+            if (f.history.hlist) {
                 const history = document.createElement("div")
-                history.textContent = "Historia: " + f.history
+                history.textContent = "Historia: " + f.history.hlist
                 elem.appendChild(history)
             }
 
