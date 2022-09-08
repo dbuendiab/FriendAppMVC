@@ -22,8 +22,8 @@ class View {
         <button id="accept">Aceptar</button>
         <button id="cancel">Cancelar</button>
         `
-        // Añadir el formulario al DOM
-        this.root.appendChild(form)
+        // Añadir el formulario al DOM (al principio)
+        this.root.prepend(form)
 
         // El botón Accept recoge la información del nuevo friend
         const btnAccept = document.getElementById("accept")
@@ -58,7 +58,7 @@ class View {
 
         for(const f of friends) {
             const elem = document.createElement("div")
-            elem.className = "container"
+            elem.className = "friend-item"
 
             const name = document.createElement("div")
             name.textContent = "Nombre: " + f.name
@@ -70,15 +70,20 @@ class View {
             periodicity.textContent = "Periodicidad: " + f.periodicity
             const note = document.createElement("div")
             note.textContent = "Nota: " + f.note
-            const history = document.createElement("div")
-            history.textContent = "Historia: " + f.history
 
             elem.appendChild(name)
             elem.appendChild(date)
             elem.appendChild(importance)
             elem.appendChild(periodicity)
             elem.appendChild(note)
-            elem.appendChild(history)
+
+            // Poner la historia opcionalmente, si existe esa información
+            // Además, tendría que ser mediante un for(), porque es una lista
+            if (f.history) {
+                const history = document.createElement("div")
+                history.textContent = "Historia: " + f.history
+                elem.appendChild(history)
+            }
 
             this.root.appendChild(elem)
         }
