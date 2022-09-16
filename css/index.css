@@ -1,3 +1,7 @@
 .friend-item {
     margin-top: 16px;
 }
+
+label {
+    display: block;
+}
